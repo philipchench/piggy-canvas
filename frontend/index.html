@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Draw Something</title>
+
+    <style type="text/css">
+      body {
+        background: #dbabbd;
+        overflow: hidden;
+      }
+      .canvas {
+        position: absolute;
+        margin: 10px;
+        border: solid #da6e92;
+        border-width: 5px;
+      }
+      .controls {
+        margin: 20px 40px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+      }
+      .title {
+        margin-right: 25px;
+        color: rgb(211, 16, 81);
+      }
+      .button {
+        background-color: #f183a8;
+        border-color: #f183a8;
+        border-radius: 5px;
+        margin: 0px 20px;
+        height: 50px;
+        width: 50px;
+      }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/canvas.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <canvas class="canvas" id="canvas" width="1500" height="1000"></canvas>
+      <div class="controls">
+        <h1 class="title">PiggyCanvas</h1>
+        <button class="button" id="pigApple">
+          <img src="static\pig-apple.png" height="35px" />
+        </button>
+        <button class="button" id="pigLine">
+          <img src="static\pig-line.png" height="37px" /></button
+        ><button class="button" id="pigLG">
+          <img src="static\pig-lg.png" height="34px" />
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
