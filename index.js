@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-// app.use("/static", express.static(__dirname + "/frontend/static"));
+// this can directly serve the frontend and other static files
 app.use(express.static(__dirname + "/frontend"));
 
 // don't need any more???? ^^ automatically detects static files???
