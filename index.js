@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors");
 
 const app = express();
 
@@ -21,11 +21,7 @@ app.use(express.static(__dirname + "/frontend"));
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server, {
-  cors: {
-    origin: "https://piggy-canvas.herokuapp.com/",
-  },
-});
+const io = new Server(server);
 
 io.sockets.on("connection", (socket) => {
   console.log(socket.id + " is connected.");

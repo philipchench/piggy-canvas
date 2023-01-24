@@ -94,7 +94,7 @@ canvas.onmousemove = (e) => {
   }
 };
 
-let socket = io.connect("http://127.0.0.1:8080");
+let socket = io.connect();
 
 socket.on("receiveDrawPig", (data) => {
   img = new Image();
