@@ -1,12 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors"); // no need if html served from same node server
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Pigs are cool.");
-});
+// app.use("/static", express.static(__dirname + "/frontend/static"));
+app.use(express.static(__dirname + "/frontend"));
+
+// don't need any more???? ^^ automatically detects static files???
+// app.get("/", (req, res) => {
+//   res.sendFile("index.html", { root: __dirname });
+// });
 
 // // parse requests of content-type - application/json
 // app.use(bodyParser.json());
@@ -17,19 +21,16 @@ app.get("/", (req, res) => {
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server, {
-  cors: {
-    origin: "http://127.0.0.1:5500",
-  },
-});
+const io = new Server(server);
 
 io.sockets.on("connection", (socket) => {
   console.log(socket.id + " is connected.");
 
+  // receive drawn pig data from a client
   socket.on("drawPig", (data) => {
     socket.broadcast.emit("receiveDrawPig", data);
   });
-
+  // client resets canvas
   socket.on("reset", () => {
     socket.broadcast.emit("receiveReset");
   });
