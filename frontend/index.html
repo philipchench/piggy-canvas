@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Draw Something</title>
+    <title>PiggyCanvas</title>
 
     <style type="text/css">
       body {
@@ -23,19 +23,39 @@
       }
       .title {
         margin-right: 25px;
-        color: rgb(211, 16, 81);
+        color: #d31051;
       }
       .button {
         background-color: #f183a8;
-        border-color: #f183a8;
+        border-color: #d44776;
         border-radius: 5px;
         margin: 0px 20px;
         height: 50px;
         width: 50px;
+        color: #d31051;
+      }
+      .size {
+        margin: 0px 20px;
+        background-color: #ffcadc;
+        border-color: #d44776;
+        border-radius: 5px;
+        color: #d31051;
+      }
+      .option {
+        color: #d31051;
+      }
+      .textbtn {
+        margin: 0px 10px;
+        background-color: #ffcadc;
+        border-color: #d44776;
+        border-radius: 5px;
+        color: #d31051;
+      }
+      a {
+        text-decoration: none;
+        color: #d31051;
       }
     </style>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/canvas.js"></script>
   </head>
 
   <body>
@@ -51,7 +71,23 @@
         ><button class="button" id="pigLG">
           <img src="static\pig-lg.png" height="34px" />
         </button>
+        <select class="size" id="sizeMenu">
+          <option class="option" value="0">Small</option>
+          <option class="option" value="1" selected>Medium</option>
+          <option class="option" value="2">Large</option>
+        </select>
+        <button class="textbtn" id="reset">reset</button>
+        <button class="textbtn">
+          <a target="_blank" href="https://philipchench.github.io/">author</a>
+        </button>
       </div>
     </div>
   </body>
+
+  <script
+    src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+    integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+    crossorigin="anonymous"
+  ></script>
+  <script src="canvas.js"></script>
 </html>
